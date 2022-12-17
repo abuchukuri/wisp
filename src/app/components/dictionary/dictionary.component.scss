@@ -1,0 +1,49 @@
+.dictionary {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 30px;
+  position: relative;
+  overflow: hidden;
+  &__item {
+    height: 36px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    align-items: center;
+    border-radius: 20px;
+    color: rgb(179, 175, 175);
+    font-weight: 800;
+    background-color: rgb(28, 31, 31);
+    box-shadow: rgb(0 0 0) 3px 3px 6px 0px inset,
+      rgb(116 109 109 / 50%) -3px -3px 6px 1px inset;
+    &:hover {
+      color: rgb(172, 214, 226);
+      box-shadow: rgb(116 109 109 / 50%) 2px 2px 3px 0px,
+        rgb(0 0 0) -2px -2px 3px 1px;
+    }
+  }
+  &__search {
+    border-radius: 2rem;
+    box-shadow: rgb(0 0 0) 3px 3px 6px 0px inset,
+      rgb(116 109 109 / 50%) -3px -3px 6px;
+    background: rgb(28, 31, 31);
+    padding: 8px 20px;
+    input {
+      width: 100%;
+      background-color: transparent;
+      border: transparent;
+      color: rgb(179, 175, 175);
+      font-weight: 600;
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+}
+
+hr {
+  width: 100%;
+  margin: 0;
+  border-color: rgb(47, 45, 44);
+}

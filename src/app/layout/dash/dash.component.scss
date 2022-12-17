@@ -1,6 +1,15 @@
 .dash {
   background-color: #292626;
   height: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+.content {
+  height: 100%;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 1fr minmax(0, auto);
   position: relative;
 }
 
@@ -18,4 +27,16 @@
   position: absolute;
   bottom: 5px;
   width: 100%;
+}
+
+.sidepanel {
+  height: 100%;
+  width: 0;
+  background-color: #222020;
+  box-shadow: rgba(46, 204, 240, 0.1) -5px 0px,
+    rgba(46, 204, 240, 0.05) -10px 0px;
+
+  &.open {
+    width: 300px;
+  }
 }

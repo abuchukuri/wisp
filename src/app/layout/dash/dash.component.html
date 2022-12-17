@@ -1,10 +1,18 @@
 <div class="dash">
-  <app-navbar></app-navbar>
-  <app-progressbar></app-progressbar>
-  <div class="quiz-wrapper">
-    <app-test></app-test>
+  <app-navbar #nav></app-navbar>
+  <div class="content">
+    <div class="content-left">
+      <app-progressbar></app-progressbar>
+      <div class="quiz-wrapper">
+        <app-test></app-test>
+      </div>
+    </div>
+    <div class="content-right">
+      <div class="sidepanel" [ngClass]="{ open: nav.showFiller }">
+        <app-dictionary></app-dictionary>
+      </div>
+    </div>
   </div>
-
   <app-wave class="wave"></app-wave>
   <!-- <app-fire></app-fire> -->
 </div>

@@ -1,0 +1,18 @@
+<div class="dictionary">
+  <div class="dictionary__search">
+    <form [formGroup]="dictionary">
+      <input formControlName="search" #input type="text" />
+    </form>
+  </div>
+  <hr />
+
+  <ng-container *ngFor="let word of wordsData">
+    <div
+      class="dictionary__item"
+      *ngIf="search && search.value !== null && word.includes(search.value)"
+    >
+      {{ word }}
+      <i class="fa-regular fa-eye"></i>
+    </div>
+  </ng-container>
+</div>

@@ -11,6 +11,11 @@ import { ProgressbarComponent } from './components/progressbar/progressbar.compo
 import { TestComponent } from './components/test/test.component';
 import { ButtonComponent } from './common/button/button.component';
 import { MatMenuModule } from '@angular/material/menu';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { DictionaryComponent } from './components/dictionary/dictionary.component';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { BlueFireComponent } from './svg/blue-fire/blue-fire.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,8 +26,18 @@ import { MatMenuModule } from '@angular/material/menu';
     ProgressbarComponent,
     TestComponent,
     ButtonComponent,
+    DictionaryComponent,
+    BlueFireComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, MatMenuModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    MatSidenavModule,
+    BrowserAnimationsModule,
+    MatMenuModule,
+    FormsModule,
+    ReactiveFormsModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })
