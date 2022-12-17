@@ -37,7 +37,9 @@ export class TestComponent implements OnInit {
       correctAnswer: this.quiz[test].correct,
       answeredCorrectly: this.quiz[test].correct === answer,
     };
-    setTimeout(() => this.currentStep++, 2500);
+    setTimeout(() => {
+      if (this.currentStep < this.quiz.length - 1) this.currentStep++;
+    }, 2500);
   }
 
   createQuiz(testsCount: number) {
@@ -57,8 +59,18 @@ export class TestComponent implements OnInit {
 
   getPics(correct: number) {
     const array = [];
+    const storedAnswersIndexes: number[] = [];
     for (let i = 0; i < 3; i++) {
-      array.push(images[Math.floor(Math.random() * (10 + 1))]);
+      const answerIndexToStore = Math.floor(Math.random() * (10 + 1));
+      const alreadyHaveStored =
+        storedAnswersIndexes.filter((i) => i === answerIndexToStore).length >
+          0 || answerIndexToStore == correct;
+      if (alreadyHaveStored) {
+        i--;
+        continue;
+      }
+      storedAnswersIndexes.push(answerIndexToStore);
+      array.push(images[answerIndexToStore]);
     }
     array.push(images[correct]);
     return this.mixUpArray(array);
