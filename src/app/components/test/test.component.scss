@@ -1,16 +1,41 @@
 .component {
   .count {
-    padding: 40px;
+    padding: 30px;
     p {
       color: white;
       font-weight: 600;
     }
   }
   .question {
-    margin-top: 50px;
+    margin-top: 20px;
     p {
       color: white;
       font-size: 24px;
+    }
+  }
+  .answers {
+    flex-wrap: wrap;
+    gap: 13%;
+    max-width: 700px;
+    margin: 40px auto;
+    row-gap: 20px;
+    .answer {
+      width: 290px;
+      height: 200px;
+      background: white;
+      border-radius: 8px;
+      cursor: pointer;
+      &:hover {
+        img {
+          // object-fit: cover;
+        }
+      }
+      &.correct {
+        background-color: green;
+      }
+      &.incorrect {
+        background-color: red;
+      }
     }
   }
 }
