@@ -6,13 +6,14 @@
   </div>
   <hr />
 
-  <ng-container *ngFor="let word of wordsData">
-    <div
+  <ng-container *ngFor="let word of wordsData; let index = index">
+    <button
       class="dictionary__item"
       *ngIf="search && search.value !== null && word.includes(search.value)"
+      [disabled]="index > 2"
     >
       {{ word }}
       <i class="fa-regular fa-eye"></i>
-    </div>
+    </button>
   </ng-container>
 </div>
