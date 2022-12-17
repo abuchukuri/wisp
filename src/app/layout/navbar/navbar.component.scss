@@ -6,6 +6,10 @@
   animation: glow 3s infinite ease-out;
   position: relative;
   box-shadow: rgb(0 0 0) 0px -1px 4px 0px inset;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 30px;
 }
 
 @keyframes glow {
