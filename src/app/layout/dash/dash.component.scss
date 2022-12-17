@@ -1,5 +1,21 @@
 .dash {
   background-color: #292626;
-  width: 100vw;
-  height: 100vh;
+  height: 100%;
+  position: relative;
+}
+
+.quiz-wrapper {
+  margin: 0 auto;
+  margin-top: 133px;
+  border-radius: 20px;
+  box-shadow: rgb(0 0 0 / 5%) 0px 30px 60px -12px inset,
+    rgb(0 0 0 / 30%) 0px 18px 36px -18px inset;
+  width: 74%;
+  height: 60%;
+}
+
+.wave {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
 }

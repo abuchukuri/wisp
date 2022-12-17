@@ -5,12 +5,16 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './layout/navbar/navbar.component';
 import { DashComponent } from './layout/dash/dash.component';
+import { FireComponent } from './svg/fire/fire.component';
+import { WaveComponent } from './svg/wave/wave.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
-    DashComponent
+    DashComponent,
+    FireComponent,
+    WaveComponent
   ],
   imports: [
     BrowserModule,
