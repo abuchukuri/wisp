@@ -14,7 +14,7 @@
   overflow: hidden;
   transition: all 0.5s;
   will-change: transform;
-  box-shadow: 0 0 5px #1878d2;
+  box-shadow: 0 0 5px #32d8eece;
   transition: box-shadow 2s;
   &.fail {
     box-shadow: 0 0 5px #6618d2;
@@ -35,12 +35,11 @@
   height: 100%;
   width: 100%;
   content: "";
-  transition: background-color 2s;
-  background-color: #1878d2;
+  transition: background-color 2s, left 2s;
+  background-color: #32d8eece;
   top: 0;
   bottom: 0;
-  left: -100%;
-  left: -40%;
+  left: var(--position);
   border-radius: inherit;
   display: flex;
   justify-content: center;
