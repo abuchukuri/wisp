@@ -11,10 +11,7 @@
         class="answer centered-flex"
         *ngFor="let answer of test.answers; index as j"
         [ngClass]="{
-          correct: answerStore[i].answered
-            ? answerStore[i].answeredCorrectly &&
-              j === answerStore[i].chosenAnswer
-            : false,
+          correct: answerStore[i].answered && j === test.correct ? true : false,
           incorrect: answerStore[i].answered
             ? !answerStore[i].answeredCorrectly &&
               j === answerStore[i].chosenAnswer

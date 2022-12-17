@@ -3,4 +3,5 @@ export interface IanswerStore {
   answeredCorrectly?: boolean;
   chosenAnswer?: number;
   correctAnswer?: number;
+  showAnswer?: boolean;
 }

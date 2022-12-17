@@ -26,7 +26,7 @@ export class TestComponent implements OnInit {
 
   createAnswerStore(testsCount: number) {
     for (let i = 0; i < testsCount; i++) {
-      this.answerStore.push({ answered: false });
+      this.answerStore.push({ answered: false, showAnswer: false });
     }
   }
 
@@ -37,6 +37,7 @@ export class TestComponent implements OnInit {
       correctAnswer: this.quiz[test].correct,
       answeredCorrectly: this.quiz[test].correct === answer,
     };
+    setTimeout(() => this.currentStep++, 2500);
   }
 
   createQuiz(testsCount: number) {
