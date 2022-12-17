@@ -7,6 +7,7 @@ import { NavbarComponent } from './layout/navbar/navbar.component';
 import { DashComponent } from './layout/dash/dash.component';
 import { FireComponent } from './svg/fire/fire.component';
 import { WaveComponent } from './svg/wave/wave.component';
+import { ProgressbarComponent } from './components/progressbar/progressbar.component';
 
 @NgModule({
   declarations: [
@@ -14,13 +15,11 @@ import { WaveComponent } from './svg/wave/wave.component';
     NavbarComponent,
     DashComponent,
     FireComponent,
-    WaveComponent
+    WaveComponent,
+    ProgressbarComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
+  imports: [BrowserModule, AppRoutingModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
