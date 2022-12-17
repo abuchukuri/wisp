@@ -1,0 +1,64 @@
+.header {
+  width: 100%;
+  height: 64px;
+
+  background-color: #222020;
+  box-shadow: rgb(0 0 0) 0px -1px 4px 0px inset, #32d8ee66 0px 2px 8px 0px;
+  border-bottom: #23cad996 solid 1px;
+  animation: glow 3s infinite ease-out;
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 100%;
+    width: 20%;
+    height: 0;
+    -webkit-box-shadow: 0 0 17px 3px #ffff01, 0 0 4px 2px #ffff01;
+    box-shadow: 0 0px 4px 2px #32d8ee23;
+
+    -webkit-animation-name: yellow-shadow;
+    animation-name: yellow-shadow;
+    -webkit-animation-timing-function: ease;
+    animation-timing-function: ease;
+    -webkit-animation-duration: 2s;
+    animation-duration: 4s;
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+  }
+}
+
+@keyframes yellow-shadow {
+  0% {
+    // left: 0;
+    width: 5%;
+  }
+  100% {
+    // left: 100%;
+    width: 100%;
+  }
+}
+@keyframes glow {
+  0% {
+    // box-shadow: rgb(0 0 0) 0px -1px 4px 0px inset, #32d8ee66 0px 2px 8px 0px;
+    box-shadow: rgb(0 0 0) 0px -1px 4px 0px inset, #32d8ee66 0px 1px 6px 0px;
+  }
+  50% {
+    box-shadow: rgb(0 0 0) 0px -1px 4px 0px inset, #32d8ee66 0px 3px 10px 0px;
+  }
+  //   50% {
+  //     box-shadow: rgb(0 0 0) 0px -1px 4px 0px inset, #32d8ee66 0px 2px 8px 0px;
+  //   }
+  100% {
+    box-shadow: rgb(0 0 0) 0px -1px 4px 0px inset, #32d8ee66 0px 1px 6px 0px;
+  }
+  //   100% {
+  //     box-shadow: rgb(0 0 0) 0px -1px 4px 0px inset, #32d8ee66 0px 2px 8px 0px;
+  //   }
+}
