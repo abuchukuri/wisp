@@ -11,6 +11,7 @@ import { IanswerStore } from 'src/app/common/interfaces/answer-store.i';
   styleUrls: ['./test.component.scss'],
 })
 export class TestComponent implements OnInit {
+  initialised = false;
   currentStep = 0;
   quiz: IQuestion[] = [];
   answerStore: IanswerStore[] = [];
@@ -18,14 +19,23 @@ export class TestComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {
+    this.createAnswerStore(4);
     this.createQuiz(4);
+    this.initialised = true;
+  }
+
+  createAnswerStore(testsCount: number) {
+    for (let i = 0; i < testsCount; i++) {
+      this.answerStore.push({ answered: false });
+    }
   }
 
   onAnswer(test: number, answer: number) {
     this.answerStore[test] = {
+      answered: true,
       chosenAnswer: answer,
       correctAnswer: this.quiz[test].correct,
-      question: this.quiz[test].question,
+      answeredCorrectly: this.quiz[test].correct === answer,
     };
   }
 

@@ -1,5 +1,5 @@
 <ng-container *ngFor="let test of quiz; index as i">
-  <div class="component" *ngIf="currentStep === i">
+  <div class="component" *ngIf="currentStep === i && initialised">
     <div class="count centered-flex">
       <p>{{ i + "/" + quiz.length }}</p>
     </div>
@@ -9,7 +9,17 @@
     <div class="answers centered-flex">
       <div
         class="answer centered-flex"
-        *ngFor="let answer of test.answers"
+        *ngFor="let answer of test.answers; index as j"
+        [ngClass]="{
+          correct: answerStore[i].answered
+            ? answerStore[i].answeredCorrectly &&
+              j === answerStore[i].chosenAnswer
+            : false,
+          incorrect: answerStore[i].answered
+            ? !answerStore[i].answeredCorrectly &&
+              j === answerStore[i].chosenAnswer
+            : false
+        }"
         (click)="onAnswer(i, test.answers.indexOf(answer))"
       >
         <img [src]="answer" />

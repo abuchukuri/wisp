@@ -1,5 +1,6 @@
 export interface IanswerStore {
-  question: string;
-  chosenAnswer: number;
-  correctAnswer: number;
+  answered: boolean;
+  answeredCorrectly?: boolean;
+  chosenAnswer?: number;
+  correctAnswer?: number;
 }
