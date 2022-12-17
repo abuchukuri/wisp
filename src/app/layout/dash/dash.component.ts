@@ -6,7 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./dash.component.scss'],
 })
 export class DashComponent implements OnInit {
+  loading = true;
   constructor() {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    setTimeout(() => {
+      this.loading = false;
+    }, 3000);
+  }
 }

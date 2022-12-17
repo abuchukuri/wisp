@@ -1,7 +1,7 @@
 <ng-container *ngFor="let test of quiz; index as i">
   <div class="component" *ngIf="currentStep === i && initialised">
     <div class="count centered-flex">
-      <p>{{ i + "/" + quiz.length }}</p>
+      <p>{{ i + 1 + "/" + quiz.length }}</p>
     </div>
     <div class="question centered-flex">
       <p>{{ test.question }}</p>

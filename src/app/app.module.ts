@@ -8,7 +8,6 @@ import { FireComponent } from './svg/fire/fire.component';
 import { WaveComponent } from './svg/wave/wave.component';
 import { ProgressbarComponent } from './components/progressbar/progressbar.component';
 import { TestComponent } from './components/test/test.component';
-import { ButtonComponent } from './common/button/button.component';
 import { MatMenuModule } from '@angular/material/menu';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSidenavModule } from '@angular/material/sidenav';
@@ -24,7 +23,6 @@ import { BlueFireComponent } from './svg/blue-fire/blue-fire.component';
     WaveComponent,
     ProgressbarComponent,
     TestComponent,
-    ButtonComponent,
     DictionaryComponent,
     BlueFireComponent,
   ],
