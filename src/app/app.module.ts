@@ -10,7 +10,7 @@ import { WaveComponent } from './svg/wave/wave.component';
 import { ProgressbarComponent } from './components/progressbar/progressbar.component';
 import { TestComponent } from './components/test/test.component';
 import { ButtonComponent } from './common/button/button.component';
-
+import { MatMenuModule } from '@angular/material/menu';
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,9 +20,9 @@ import { ButtonComponent } from './common/button/button.component';
     WaveComponent,
     ProgressbarComponent,
     TestComponent,
-    ButtonComponent
+    ButtonComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule],
+  imports: [BrowserModule, AppRoutingModule, MatMenuModule],
   providers: [],
   bootstrap: [AppComponent],
 })

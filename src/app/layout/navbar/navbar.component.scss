@@ -12,6 +12,18 @@
   padding: 0 30px;
 }
 
+.library-icon {
+  background-color: unset;
+  border: none;
+  width: 40px;
+  height: 35px;
+  box-shadow: inset 1px 1px 10px rgb(16, 15, 15);
+  border-radius: 5px;
+  &:hover {
+    box-shadow: 1px 1px 10px rgb(16, 15, 15);
+  }
+}
+
 @keyframes glow {
   // 0% {
   //   box-shadow: rgb(0 0 0) 0px -1px 4px 0px inset,
