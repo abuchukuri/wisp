@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { IQuestion } from 'src/app/common/interfaces/question.i';
 import { images } from 'src/app/consts/img.const';
+import { questionForms } from 'src/app/consts/question-forms.const';
+import { FormGroup, FormControl, FormArray, FormBuilder } from '@angular/forms';
+import { IanswerStore } from 'src/app/common/interfaces/answer-store.i';
 
 @Component({
   selector: 'app-test',
@@ -8,16 +11,22 @@ import { images } from 'src/app/consts/img.const';
   styleUrls: ['./test.component.scss'],
 })
 export class TestComponent implements OnInit {
-  imgs = images;
-  ar = new Array(4);
-
+  currentStep = 0;
   quiz: IQuestion[] = [];
+  answerStore: IanswerStore[] = [];
 
   constructor() {}
 
   ngOnInit(): void {
     this.createQuiz(4);
-    console.log(this.quiz);
+  }
+
+  onAnswer(test: number, answer: number) {
+    this.answerStore[test] = {
+      chosenAnswer: answer,
+      correctAnswer: this.quiz[test].correct,
+      question: this.quiz[test].question,
+    };
   }
 
   createQuiz(testsCount: number) {
@@ -58,9 +67,3 @@ export class TestComponent implements OnInit {
     return array;
   }
 }
-
-const questionForms = [
-  'what do you think, which one is ',
-  'you need to find ',
-  'it is so easy to choose ',
-];
