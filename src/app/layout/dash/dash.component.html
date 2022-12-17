@@ -1,17 +1,4 @@
 <div class="dash">
-  <ng-container *ngIf="loading; else content">
-    <div class="wave-fill">
-      <div class="water">
-        <span class="wave"></span>
-        <span class="deep-water"></span>
-      </div>
-    </div>
-  </ng-container>
-
-  <!-- <app-fire></app-fire> -->
-</div>
-
-<ng-template #content>
   <app-navbar></app-navbar>
   <app-progressbar></app-progressbar>
   <div class="quiz-wrapper">
@@ -19,4 +6,5 @@
   </div>
 
   <app-wave class="wave"></app-wave>
-</ng-template>
+  <!-- <app-fire></app-fire> -->
+</div>
