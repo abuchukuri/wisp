@@ -1,11 +1,22 @@
 <div class="container">
   <div
     class="progress-bar__container"
+    [ngClass]="{
+      success: (testState.testState | async),
+      fail:
+        !(testState.testState | async) && (testState.testState | async) !== null
+    }"
     style="--position:{{ 0 - (100 - (100 * stepIndex) / steps) }}%"
   >
     <div class="progress-bar"></div>
 
     <img src="../../../assets/img/flame.png" alt="" />
   </div>
-  <app-blue-fire></app-blue-fire>
+  <app-blue-fire
+    [ngClass]="{
+      success: (testState.testState | async),
+      fail:
+        !(testState.testState | async) && (testState.testState | async) !== null
+    }"
+  ></app-blue-fire>
 </div>

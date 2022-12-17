@@ -4,6 +4,7 @@ import { images } from 'src/app/consts/img.const';
 import { questionForms } from 'src/app/consts/question-forms.const';
 import { FormGroup, FormControl, FormArray, FormBuilder } from '@angular/forms';
 import { IanswerStore } from 'src/app/common/interfaces/answer-store.i';
+import { SuccessStateService } from 'src/app/services/success-state.service';
 
 @Component({
   selector: 'app-test',
@@ -16,7 +17,7 @@ export class TestComponent implements OnInit {
   quiz: IQuestion[] = [];
   answerStore: IanswerStore[] = [];
 
-  constructor() {}
+  constructor(private testState: SuccessStateService) {}
 
   ngOnInit(): void {
     this.createAnswerStore(4);
@@ -37,8 +38,10 @@ export class TestComponent implements OnInit {
       correctAnswer: this.quiz[test].correct,
       answeredCorrectly: this.quiz[test].correct === answer,
     };
+    this.testState.next(this.quiz[test].correct === answer);
     setTimeout(() => {
       if (this.currentStep < this.quiz.length - 1) this.currentStep++;
+      this.testState.reset();
     }, 2500);
   }
 

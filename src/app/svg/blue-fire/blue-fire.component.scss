@@ -62,6 +62,35 @@
   margin-left: auto;
   margin-right: auto;
 }
+:host {
+  &.success {
+    .main-fire {
+      background-image: radial-gradient(
+        farthest-corner at 10px 0,
+        #00d43998 0%,
+        #00ef68 95%
+      );
+      filter: drop-shadow(0 0 10px #8ad488);
+    }
+    .particle-fire {
+      background-color: #8ad488;
+    }
+  }
+
+  &.fail {
+    .main-fire {
+      background-image: radial-gradient(
+        farthest-corner at 10px 0,
+        #0e00d498 0%,
+        #6618d2 95%
+      );
+      filter: drop-shadow(0 0 10px #6618d2);
+    }
+    .particle-fire {
+      background-color: #6618d2;
+    }
+  }
+}
 
 .fire-center {
   position: absolute;
