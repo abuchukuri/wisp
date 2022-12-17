@@ -9,7 +9,6 @@ import { FireComponent } from './svg/fire/fire.component';
 import { WaveComponent } from './svg/wave/wave.component';
 import { ProgressbarComponent } from './components/progressbar/progressbar.component';
 import { TestComponent } from './components/test/test.component';
-import { ButtonComponent } from './common/button/button.component';
 import { MatMenuModule } from '@angular/material/menu';
 @NgModule({
   declarations: [
@@ -20,7 +19,6 @@ import { MatMenuModule } from '@angular/material/menu';
     WaveComponent,
     ProgressbarComponent,
     TestComponent,
-    ButtonComponent,
   ],
   imports: [
     BrowserModule,
