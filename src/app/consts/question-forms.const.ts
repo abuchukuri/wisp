@@ -1,5 +1,6 @@
 export const questionForms = [
-  'what do you think, which one is ',
-  'you need to find ',
-  'it is so easy to choose ',
+  'რას ფიქრობ, რომელია ',
+  'იპოვნე ',
+  'მარტივია იპოვნო ',
+  'ამოირჩიე რომელია ',
 ];

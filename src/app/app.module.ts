@@ -14,6 +14,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { DictionaryComponent } from './components/dictionary/dictionary.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { BlueFireComponent } from './svg/blue-fire/blue-fire.component';
+import { LoaderComponent } from './svg/loader/loader.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,6 +26,7 @@ import { BlueFireComponent } from './svg/blue-fire/blue-fire.component';
     TestComponent,
     DictionaryComponent,
     BlueFireComponent,
+    LoaderComponent,
   ],
   imports: [
     BrowserModule,

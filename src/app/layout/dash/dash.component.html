@@ -21,4 +21,8 @@
     class="fire"
     *ngIf="(testState.testState | async) === false"
   ></app-fire>
+  <app-wave class="wave"></app-wave>
+  <div *ngIf="loading" class="background centered-flex">
+    <app-loader></app-loader>
+  </div>
 </div>

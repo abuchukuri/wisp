@@ -21,6 +21,6 @@ export class DashComponent implements OnInit {
     });
     setTimeout(() => {
       this.loading = false;
-    }, 3000);
+    }, 5000);
   }
 }
