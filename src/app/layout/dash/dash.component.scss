@@ -22,20 +22,11 @@
   width: 74%;
   height: 60%;
 }
-.wave {
-  position: fixed;
-  bottom: 0px;
-  width: 100%;
-}
 
-.sidepanel {
-  height: 100%;
-  width: 0;
-  background-color: #222020;
-  box-shadow: rgba(46, 204, 240, 0.1) -5px 0px,
-    rgba(46, 204, 240, 0.05) -10px 0px;
-
-  &.open {
-    width: 300px;
-  }
+.background {
+  position: absolute;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  backdrop-filter: blur(4px);
 }

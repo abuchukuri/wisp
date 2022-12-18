@@ -14,5 +14,7 @@
     </div>
   </div>
   <app-wave class="wave"></app-wave>
-  <!-- <app-fire></app-fire> -->
+  <div *ngIf="loading" class="background centered-flex">
+    <app-loader></app-loader>
+  </div>
 </div>
