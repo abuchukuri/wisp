@@ -11,6 +11,9 @@
   display: grid;
   grid-template-columns: 1fr minmax(0, auto);
   position: relative;
+  &-left {
+    position: relative;
+  }
 }
 
 .quiz-wrapper {
@@ -45,8 +48,14 @@
   position: absolute;
   top: 0;
   width: 100vw;
-  height: 100vh;
+  height: 100%;
   backdrop-filter: blur(4px);
+}
+.loader {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .fire {

@@ -25,10 +25,13 @@
       background: white;
       border-radius: 8px;
       cursor: pointer;
+      &.isGif img {
+        width: 148px;
+        height: 150px;
+        object-fit: cover;
+        object-position: 7% 25%;
+      }
       &:hover {
-        img {
-          // object-fit: cover;
-        }
       }
       &.correct {
         background-color: #8ad488;

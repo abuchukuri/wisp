@@ -1,4 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import {
+  Component,
+  Input,
+  OnInit,
+  OnChanges,
+  SimpleChanges,
+} from '@angular/core';
 import { IQuestion } from 'src/app/common/interfaces/question.i';
 import { images } from 'src/app/consts/img.const';
 import { questionForms } from 'src/app/consts/question-forms.const';
@@ -11,7 +17,9 @@ import { SuccessStateService } from 'src/app/services/success-state.service';
   templateUrl: './test.component.html',
   styleUrls: ['./test.component.scss'],
 })
-export class TestComponent implements OnInit {
+export class TestComponent implements OnInit, OnChanges {
+  @Input() images = images;
+  @Input() questionForms = questionForms;
   initialised = false;
   currentStep = 0;
   quiz: IQuestion[] = [];
@@ -19,6 +27,9 @@ export class TestComponent implements OnInit {
 
   constructor(private testState: SuccessStateService) {}
 
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes['images']) this.initiate();
+  }
   ngOnInit(): void {
     this.initiate();
   }
@@ -65,16 +76,23 @@ export class TestComponent implements OnInit {
     }, 1500);
   }
 
+  isGif(value: string | number) {
+    if (typeof value === 'number') return false;
+    return true;
+  }
+
   createQuiz(testsCount: number) {
     this.quiz = [];
     for (let i = 0; i < testsCount; i++) {
-      const testPosition = Math.floor(Math.random() * (images.length - 1 + 1));
-      const correct = images[testPosition];
+      const testPosition = Math.floor(
+        Math.random() * (this.images.length - 1 + 1)
+      );
+      const correct = this.images[testPosition];
       const randomAnswers = this.getPics(testPosition);
       this.quiz.push({
         question:
-          questionForms[
-            Math.floor(Math.random() * (questionForms.length - 1 + 1))
+          this.questionForms[
+            Math.floor(Math.random() * (this.questionForms.length - 1 + 1))
           ] + correct.value,
         answers: randomAnswers,
         correct: randomAnswers.indexOf(correct),
@@ -86,18 +104,20 @@ export class TestComponent implements OnInit {
     const array = [];
     const storedAnswersIndexes: number[] = [];
     for (let i = 0; i < 3; i++) {
-      const answerIndexToStore = Math.floor(Math.random() * (10 + 1));
+      const answerIndexToStore = Math.floor(Math.random() * this.images.length);
       const alreadyHaveStored =
         storedAnswersIndexes.filter((i) => i === answerIndexToStore).length >
           0 || answerIndexToStore == correct;
+
       if (alreadyHaveStored) {
         i--;
         continue;
       }
+
       storedAnswersIndexes.push(answerIndexToStore);
-      array.push(images[answerIndexToStore]);
+      array.push(this.images[answerIndexToStore]);
     }
-    array.push(images[correct]);
+    array.push(this.images[correct]);
     return this.mixUpArray(array);
   }
 

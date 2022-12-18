@@ -47,11 +47,10 @@ export const images = [
 
 export const imagesLat = [
   { value: 'angel', src: '../../../assets/gif/angel.gif' },
-  { value: 'border', src: '../../../assets/gif/border.gif' },
-  { value: 'brick', src: '../../../assets/gif/brick.gif' },
-  { value: 'cool', src: '../../../assets/gif/cool.gif' },
+  { value: 'bored', src: '../../../assets/gif/bored.gif' },
+  { value: 'brisk', src: '../../../assets/gif/brisk.gif' },
   { value: 'cupid', src: '../../../assets/gif/cupid.gif' },
-  { value: 'down', src: '../../../assets/gif/down.gif' },
+  { value: 'dawn', src: '../../../assets/gif/dawn.gif' },
   { value: 'dolphin', src: '../../../assets/gif/dolphin.gif' },
   { value: 'everyday', src: '../../../assets/gif/everyday.gif' },
   { value: 'hail', src: '../../../assets/gif/hail.gif' },

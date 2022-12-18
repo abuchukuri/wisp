@@ -2,7 +2,6 @@
   <app-navbar #nav></app-navbar>
   <div class="content">
     <div class="content-left">
-      <p>{{ IsGeo }}</p>
       <div class="switch">
         <input
           id="language-toggle"
@@ -16,7 +15,10 @@
       </div>
       <app-progressbar></app-progressbar>
       <div class="quiz-wrapper">
-        <app-test></app-test>
+        <app-test
+          [questionForms]="IsGeo ? questionForms : questionFormsLat"
+          [images]="IsGeo ? images : imagesLat"
+        ></app-test>
       </div>
     </div>
 
@@ -34,7 +36,6 @@
     class="fire"
     *ngIf="(testState.testState | async) === false"
   ></app-fire>
-  <div *ngIf="loading" class="background centered-flex">
-    <app-loader></app-loader>
-  </div>
+  <div *ngIf="loading" class="background"></div>
+  <app-loader *ngIf="loading" class="loader"></app-loader>
 </div>

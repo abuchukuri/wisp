@@ -15,7 +15,8 @@
           incorrect: answerStore[i].answered
             ? !answerStore[i].answeredCorrectly &&
               j === answerStore[i].chosenAnswer
-            : false
+            : false,
+          isGif: isGif(answer.value)
         }"
         (click)="onAnswer(i, test.answers.indexOf(answer))"
       >
