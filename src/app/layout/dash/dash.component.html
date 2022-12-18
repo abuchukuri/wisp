@@ -7,6 +7,7 @@
         <app-test></app-test>
       </div>
     </div>
+
     <div class="content-right">
       <div class="sidepanel" [ngClass]="{ open: nav.showFiller }">
         <app-dictionary></app-dictionary>
@@ -21,7 +22,6 @@
     class="fire"
     *ngIf="(testState.testState | async) === false"
   ></app-fire>
-  <app-wave class="wave"></app-wave>
   <div *ngIf="loading" class="background centered-flex">
     <app-loader></app-loader>
   </div>

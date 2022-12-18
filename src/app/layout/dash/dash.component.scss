@@ -1,6 +1,6 @@
 .dash {
   background-color: #292626;
-  height: 1000px;
+  height: 200vh;
   display: flex;
   flex-direction: column;
   position: relative;
@@ -27,6 +27,18 @@
   bottom: 0px;
   width: 100%;
   animation: appear 1s;
+}
+
+.sidepanel {
+  height: 100%;
+  width: 0;
+  background-color: #222020;
+  box-shadow: rgba(46, 204, 240, 0.1) -5px 0px,
+    rgba(46, 204, 240, 0.05) -10px 0px;
+
+  &.open {
+    width: 300px;
+  }
 }
 
 .background {
