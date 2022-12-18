@@ -4,3 +4,10 @@ export const questionForms = [
   'მარტივია იპოვო ',
   'ამოირჩიე რომელია ',
 ];
+
+export const questionFormsLat = [
+  'you got this! ',
+  'super easy! ',
+  'choose which one is ',
+  'guess which one is ',
+];

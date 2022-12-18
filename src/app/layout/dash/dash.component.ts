@@ -9,6 +9,7 @@ import { SuccessStateService } from 'src/app/services/success-state.service';
 export class DashComponent implements OnInit {
   loading = true;
   failed = false;
+  IsGeo = true;
   constructor(public testState: SuccessStateService) {}
 
   ngOnInit(): void {
