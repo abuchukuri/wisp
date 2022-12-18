@@ -6,6 +6,9 @@ import { Subject } from 'rxjs';
 export class SuccessStateService {
   testState = new Subject();
 
+  testNumber = new Subject();
+  testIndex = new Subject();
+
   next(event: any) {
     this.testState.next(event);
   }

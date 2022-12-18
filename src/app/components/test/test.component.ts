@@ -40,12 +40,19 @@ export class TestComponent implements OnInit {
     };
     this.testState.next(this.quiz[test].correct === answer);
     setTimeout(() => {
-      if (this.currentStep < this.quiz.length - 1) this.currentStep++;
-      this.testState.reset();
-    }, 2500);
+      if (
+        this.currentStep < this.quiz.length - 1 &&
+        this.quiz[test].correct === answer
+      ) {
+        this.currentStep++;
+        this.testState.testIndex.next(this.currentStep);
+        this.testState.reset();
+      }
+    }, 1500);
   }
 
   createQuiz(testsCount: number) {
+    this.testState.testNumber.next(testsCount);
     for (let i = 0; i < testsCount; i++) {
       const numberToGuess = Math.floor(
         Math.random() * (questionForms.length - 1 + 1)

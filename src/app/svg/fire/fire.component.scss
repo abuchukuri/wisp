@@ -1,9 +1,20 @@
 .mo-fire {
-  height: auto;
+  height: 416px;
   position: fixed;
-  left: 20%;
-  bottom: -50px;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -118px;
   z-index: 4;
+  animation: appear 1s;
+}
+
+@keyframes appear {
+  0% {
+    bottom: -100%;
+  }
+  100% {
+    bottom: -118px;
+  }
 }
 
 #svg-view {
@@ -16,7 +27,6 @@
   width: 100%;
   height: auto;
   position: relative;
-  right: 40px;
 }
 .flame {
   animation-name: flameDisappear;

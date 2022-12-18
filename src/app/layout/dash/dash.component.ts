@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SuccessStateService } from 'src/app/services/success-state.service';
 
 @Component({
   selector: 'app-dash',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashComponent implements OnInit {
   loading = true;
-  constructor() {}
+  failed = false;
+  constructor(public testState: SuccessStateService) {}
 
   ngOnInit(): void {
+    this.testState.testState.subscribe((e) => {
+      if (!e && e !== null) {
+        setTimeout(() => {
+          this.failed = true;
+        }, 1500);
+      }
+    });
     setTimeout(() => {
       this.loading = false;
     }, 3000);

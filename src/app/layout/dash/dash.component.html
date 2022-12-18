@@ -13,6 +13,12 @@
       </div>
     </div>
   </div>
-  <app-wave class="wave"></app-wave>
-  <!-- <app-fire></app-fire> -->
+  <app-wave
+    class="wave"
+    *ngIf="(testState.testState | async) !== false"
+  ></app-wave>
+  <app-fire
+    class="fire"
+    *ngIf="(testState.testState | async) === false"
+  ></app-fire>
 </div>
