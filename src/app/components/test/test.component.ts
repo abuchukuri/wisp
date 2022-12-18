@@ -20,12 +20,19 @@ export class TestComponent implements OnInit {
   constructor(private testState: SuccessStateService) {}
 
   ngOnInit(): void {
+    this.initiate();
+  }
+
+  initiate() {
     this.createAnswerStore(4);
     this.createQuiz(4);
+    this.currentStep = 0;
     this.initialised = true;
   }
 
   createAnswerStore(testsCount: number) {
+    this.answerStore = [];
+    this.testState.testNumber.next(testsCount);
     for (let i = 0; i < testsCount; i++) {
       this.answerStore.push({ answered: false, showAnswer: false });
     }
@@ -40,19 +47,25 @@ export class TestComponent implements OnInit {
     };
     this.testState.next(this.quiz[test].correct === answer);
     setTimeout(() => {
-      if (
-        this.currentStep < this.quiz.length - 1 &&
-        this.quiz[test].correct === answer
-      ) {
+      if (this.quiz[test].correct === answer) {
         this.currentStep++;
         this.testState.testIndex.next(this.currentStep);
+        this.testState.testState.next(null);
+      } else {
         this.testState.reset();
+        this.initiate();
+      }
+      if (this.currentStep === this.quiz.length) {
+        setTimeout(() => {
+          this.testState.reset();
+          this.initiate();
+        }, 2000);
       }
     }, 1500);
   }
 
   createQuiz(testsCount: number) {
-    this.testState.testNumber.next(testsCount);
+    this.quiz = [];
     for (let i = 0; i < testsCount; i++) {
       const numberToGuess = Math.floor(
         Math.random() * (questionForms.length - 1 + 1)

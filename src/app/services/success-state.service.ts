@@ -15,6 +15,8 @@ export class SuccessStateService {
 
   reset() {
     this.testState.next(null);
+    this.testNumber.next(0);
+    this.testIndex.next(0);
   }
   constructor() {}
 }
