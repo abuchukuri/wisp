@@ -8,12 +8,21 @@
 
   <ng-container *ngFor="let word of wordsData; let index = index">
     <button
+      (mouseenter)="showImgI = index"
+      (mouseleave)="showImgI = null"
       class="dictionary__item"
-      *ngIf="search && search.value !== null && word.includes(search.value)"
+      *ngIf="
+        search && search.value !== null && word.text.includes(search.value)
+      "
       [disabled]="index > 2"
     >
-      {{ word }}
+      {{ word.text }}
       <i class="fa-regular fa-eye"></i>
     </button>
+    <img
+      *ngIf="showImgI === index"
+      class="dictionary__preview"
+      [src]="word.src"
+    />
   </ng-container>
 </div>
