@@ -39,16 +39,16 @@ export class TestComponent implements OnInit {
     }
   }
 
-  onAnswer(test: number, answer: number) {
+  onAnswer(test: number, answerIndex: number) {
     this.answerStore[test] = {
       answered: true,
-      chosenAnswer: answer,
+      chosenAnswer: answerIndex,
       correctAnswer: this.quiz[test].correct,
-      answeredCorrectly: this.quiz[test].correct === answer,
+      answeredCorrectly: this.quiz[test].correct === answerIndex,
     };
-    this.testState.next(this.quiz[test].correct === answer);
+    this.testState.next(this.quiz[test].correct === answerIndex);
     setTimeout(() => {
-      if (this.quiz[test].correct === answer) {
+      if (this.quiz[test].correct === answerIndex) {
         this.currentStep++;
         this.testState.testIndex.next(this.currentStep);
         this.testState.testState.next(null);
@@ -68,14 +68,14 @@ export class TestComponent implements OnInit {
   createQuiz(testsCount: number) {
     this.quiz = [];
     for (let i = 0; i < testsCount; i++) {
-      const numberToGuess = Math.floor(Math.random() * (images.length - 1 + 1));
-      const correct = images[numberToGuess];
-      const randomAnswers = this.getPics(numberToGuess);
+      const testPosition = Math.floor(Math.random() * (images.length - 1 + 1));
+      const correct = images[testPosition];
+      const randomAnswers = this.getPics(testPosition);
       this.quiz.push({
         question:
           questionForms[
             Math.floor(Math.random() * (questionForms.length - 1 + 1))
-          ] + numberToGuess,
+          ] + correct.value,
         answers: randomAnswers,
         correct: randomAnswers.indexOf(correct),
       });

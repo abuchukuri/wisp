@@ -1,5 +1,5 @@
 export interface IQuestion {
   question: string;
   correct: number;
-  answers: string[];
+  answers: { value: string | number; src: string }[];
 }
