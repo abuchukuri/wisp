@@ -18,13 +18,16 @@
     background-color: rgb(28, 31, 31);
     box-shadow: rgb(0 0 0) 3px 3px 6px 0px inset,
       rgb(116 109 109 / 50%) -3px -3px 6px 1px inset;
-    &:disabled {
+    &.unavalable {
       opacity: 30%;
     }
-    &:hover:not(:disabled) {
+    &:hover:not(.unavalable) {
       color: rgb(172, 214, 226);
       box-shadow: rgb(116 109 109 / 50%) 2px 2px 3px 0px,
         rgb(0 0 0) -2px -2px 3px 1px;
+    }
+    &:hover.unavalable + img {
+      filter: blur(9px);
     }
   }
   &__search {

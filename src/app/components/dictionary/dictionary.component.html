@@ -14,7 +14,7 @@
       *ngIf="
         search && search.value !== null && word.text.includes(search.value)
       "
-      [disabled]="index > 2"
+      [ngClass]="{ unavalable: index > 2 }"
     >
       {{ word.text }}
       <i class="fa-regular fa-eye"></i>
