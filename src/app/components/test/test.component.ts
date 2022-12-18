@@ -24,8 +24,9 @@ export class TestComponent implements OnInit {
   }
 
   initiate() {
-    this.createAnswerStore(4);
-    this.createQuiz(4);
+    const quizTestsCount = Math.floor(Math.random() * (10 - 4 + 1) + 4);
+    this.createAnswerStore(quizTestsCount);
+    this.createQuiz(quizTestsCount);
     this.currentStep = 0;
     this.initialised = true;
   }
@@ -67,13 +68,14 @@ export class TestComponent implements OnInit {
   createQuiz(testsCount: number) {
     this.quiz = [];
     for (let i = 0; i < testsCount; i++) {
-      const numberToGuess = Math.floor(
-        Math.random() * (questionForms.length - 1 + 1)
-      );
+      const numberToGuess = Math.floor(Math.random() * (images.length - 1 + 1));
       const correct = images[numberToGuess];
       const randomAnswers = this.getPics(numberToGuess);
       this.quiz.push({
-        question: questionForms[numberToGuess] + numberToGuess,
+        question:
+          questionForms[
+            Math.floor(Math.random() * (questionForms.length - 1 + 1))
+          ] + numberToGuess,
         answers: randomAnswers,
         correct: randomAnswers.indexOf(correct),
       });
