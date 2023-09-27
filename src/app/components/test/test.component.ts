@@ -30,8 +30,11 @@ export class TestComponent implements OnInit, OnChanges {
   ngOnChanges(changes: SimpleChanges) {
     if (changes['images']) this.initiate();
   }
+
   ngOnInit(): void {
-    this.initiate();
+    this.testState.emptyLives.subscribe((v) => {
+      if (!v) this.initiate();
+    });
   }
 
   initiate() {
@@ -39,6 +42,7 @@ export class TestComponent implements OnInit, OnChanges {
     this.createAnswerStore(quizTestsCount);
     this.createQuiz(quizTestsCount);
     this.currentStep = 0;
+    this.testState.testIndex.next(this.currentStep);
     this.initialised = true;
   }
 
@@ -51,29 +55,36 @@ export class TestComponent implements OnInit, OnChanges {
   }
 
   onAnswer(test: number, answerIndex: number) {
-    this.answerStore[test] = {
-      answered: true,
-      chosenAnswer: answerIndex,
-      correctAnswer: this.quiz[test].correct,
-      answeredCorrectly: this.quiz[test].correct === answerIndex,
-    };
-    this.testState.next(this.quiz[test].correct === answerIndex);
-    setTimeout(() => {
-      if (this.quiz[test].correct === answerIndex) {
-        this.currentStep++;
-        this.testState.testIndex.next(this.currentStep);
-        this.testState.testState.next(null);
-      } else {
-        this.testState.reset();
-        this.initiate();
-      }
-      if (this.currentStep === this.quiz.length) {
-        setTimeout(() => {
-          this.testState.reset();
-          this.initiate();
-        }, 2000);
-      }
-    }, 1500);
+    if (!this.testState.emptyLives.value) {
+      this.answerStore[test] = {
+        answered: true,
+        chosenAnswer: answerIndex,
+        correctAnswer: this.quiz[test].correct,
+        answeredCorrectly: this.quiz[test].correct === answerIndex,
+      };
+      this.testState.next(this.quiz[test].correct === answerIndex);
+      setTimeout(() => {
+        if (this.quiz[test].correct === answerIndex) {
+          this.currentStep++;
+          this.testState.testIndex.next(this.currentStep);
+          this.testState.testState.next(null);
+        } else {
+          this.testState.incorrect();
+          if (!this.testState.emptyLives.value) {
+            this.currentStep++;
+            this.testState.testIndex.next(this.currentStep);
+          } else {
+            //reset
+          }
+        }
+        if (this.currentStep === this.quiz.length) {
+          setTimeout(() => {
+            this.testState.reset();
+            this.initiate();
+          }, 2000);
+        }
+      }, 1500);
+    }
   }
 
   isGif(value: string | number) {

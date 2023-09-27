@@ -28,13 +28,10 @@
       </div>
     </div>
   </div>
-  <app-wave
-    class="wave"
-    *ngIf="(testState.testState | async) !== false"
-  ></app-wave>
+
   <app-fire
     class="fire"
-    *ngIf="(testState.testState | async) === false"
+    *ngIf="(testState.emptyLives | async) === true"
   ></app-fire>
   <div *ngIf="loading" class="background"></div>
   <app-loader *ngIf="loading" class="loader"></app-loader>

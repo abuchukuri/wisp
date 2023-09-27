@@ -1,6 +1,6 @@
 .dash {
   background-color: #292626;
-  height: 200vh;
+  height: 130vh;
   display: flex;
   flex-direction: column;
   position: relative;
@@ -25,13 +25,6 @@
   width: 74%;
   height: 60%;
 }
-.wave {
-  position: fixed;
-  bottom: 0px;
-  width: 100%;
-  animation: appear 1s;
-}
-
 .sidepanel {
   height: 100%;
   width: 0;

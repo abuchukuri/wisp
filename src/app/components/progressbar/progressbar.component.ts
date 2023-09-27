@@ -7,15 +7,16 @@ import { SuccessStateService } from 'src/app/services/success-state.service';
   styleUrls: ['./progressbar.component.scss'],
 })
 export class ProgressbarComponent implements OnInit {
-  @Input() steps: any = 0;
-  @Input() stepIndex: any = 0;
+  steps: any = 0;
+  stepIndex: any = 0;
+
+  get lives() {
+    return this.testState.lives;
+  }
+
   constructor(public testState: SuccessStateService) {
-    testState.testNumber.subscribe(
-      (e) => (console.log('aq', e), (this.steps = e))
-    );
-    testState.testIndex.subscribe(
-      (e) => (console.log('aq', e), (this.stepIndex = e))
-    );
+    testState.testNumber.subscribe((e) => (this.steps = e));
+    testState.testIndex.subscribe((e) => (this.stepIndex = e));
   }
 
   ngOnInit(): void {}
